@@ -7,10 +7,14 @@ import { Component } from '@angular/core';
   styleUrl: './app.component.scss'
 })
 export class AppComponent {
-  title = 'ejejmplo de PIPES';
+  title = 'clases, estilos, pipes y directivas';
   confirmar: 1 | 2 | 3 = 1;
+  estudiantes = ['Goixeder', 'Amets', 'Negua'];
+  cargando = true;
 
   constructor() {
-    
+    setTimeout (() => {
+      this.cargando = !this.cargando;
+    }, 6000)
   }
 };
