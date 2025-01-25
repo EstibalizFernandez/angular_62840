@@ -10,7 +10,6 @@ import { Component } from '@angular/core';
 
 
 export class HomeComponent {
-  nombre: String = "Negua";
-  
+  titulo: String = "Compra salud mental";
 }
 
