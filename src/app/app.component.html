@@ -3,12 +3,51 @@
 <app-home></app-home>
 
 
-<main>
-  
-  <!-- PIPE: Ejemplo de clase como variable, importante la doble comilla-->
-  <button [ngClass]="'success'">Confirmar pago</button>
-    <!-- PIPE: Ejemplo de clase normal-->
-  <button ngClass="error">Cancelar pago</button>
+<main class="container">
+  {{title}}
+
+<h2>CLASS</h2>
+<h3>Con 2 valores</h3>
+<!-- PIPE: Ejemplo de clase como variable, importante la doble comilla-->
+<button [ngClass]="'success'" >Confirmar pago</button>
+  <!-- PIPE: Ejemplo de clase normal-->
+<button ngClass="error">Cancelar pago</button>
+
+<!-- PIPE: Ejemplo de clase como variable + IF-->
+<p [ngClass]="confirmar ? 'success' : 'error'">OK</p>
+
+<h3>Con 3 valores</h3>
+<!-- PIPE: Ejemplo de clase como variable, importante la doble comilla-->
+<button [ngClass]="'success'">Confirmar pago</button>
+<!-- PIPE: Ejemplo de clase como variable, importante la doble comilla-->
+<button [ngClass]="'later'" >Pagar después</button>
+<!-- PIPE: Ejemplo de clase normal-->
+<button ngClass="error">Cancelar pago</button>
+
+<h3>Tipo JSON</h3>
+<!-- PIPE: Ejemplo de clase como JSON-->
+  <p [ngClass]="{
+    success:confirmar === 1,
+    later:confirmar === 2,
+    error:confirmar === 3
+  }">OK</p>
+
+<h3>Condición booleana</h3>
+  <!-- Ejemplo de clase con una sola condición-->
+  <p [class.success]="confirmar">Pago aceptado</p>
+  <p [class.later]="confirmar">Pago pausado</p>
+  <p [class.error]="confirmar">Pago cancelado</p>
+
+<h2>STYLE</h2>
+<h4>ngStyle con negación</h4>
+  <!-- Ejemplo de clase con una sola condición-->
+  <p [ngStyle]="{
+    fontSize: !confirmar ? 'x-large' : 'small'
+  }">Términos y condiciones...</p>
+
+<h4>style con condición</h4>
+<!-- Ejemplo de clase con una sola condición-->
+<p [style.success]="confirmar">Términos y condiciones...</p>
 </main>
 <app-footer></app-footer>
 <router-outlet></router-outlet>

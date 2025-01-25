@@ -7,5 +7,10 @@ import { Component } from '@angular/core';
   styleUrl: './app.component.scss'
 })
 export class AppComponent {
-  title = 'angular_62840';
-}
+  title = 'ejejmplo de PIPES';
+  confirmar: 1 | 2 | 3 = 1;
+
+  constructor() {
+    
+  }
+};
