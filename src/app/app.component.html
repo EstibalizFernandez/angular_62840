@@ -1,29 +1,30 @@
 
 <app-header></app-header>
-<app-home></app-home>
+<app-reactiveForms></app-reactiveForms>
+<app-templateDriven></app-templateDriven>
 
 
 <main class="container">
-
+<h1>El subtítulo elegido es {{subtitulo}}</h1>
   <hr>
 <h2>CLASS</h2>
 
-<h5>Con 2 valores</h5>
+<h5>Con 2 valores + click</h5>
 <!-- PIPE: Ejemplo de clase como variable, importante la doble comilla-->
-<button [ngClass]="'success'" >Confirmar pago</button>
+<button [ngClass]="'success'" (click)="onClick(1)" (mouseenter)="imprimirEvento($event)">Confirmar pago</button>
   <!-- PIPE: Ejemplo de clase normal-->
-<button ngClass="error">Cancelar pago</button>
+<button ngClass="error" (click)="onClick(3)">Cancelar pago</button>
 
 <!-- PIPE: Ejemplo de clase como variable + IF-->
-<p [ngClass]="confirmar ? 'success' : 'error'">OK</p>
+<p [ngClass]="confirmar == 1 ? 'success' : 'error'">OK</p>
 
 <h5>Con 3 valores</h5>
 <!-- PIPE: Ejemplo de clase como variable, importante la doble comilla-->
-<button [ngClass]="'success'">Confirmar pago</button>
+<button [ngClass]="'success'" (click)="onClick(1)">Confirmar pago</button>
 <!-- PIPE: Ejemplo de clase como variable, importante la doble comilla-->
-<button [ngClass]="'later'" >Pagar después</button>
+<button [ngClass]="'later'" (click)="onClick(2)">Pagar después</button>
 <!-- PIPE: Ejemplo de clase normal-->
-<button ngClass="error">Cancelar pago</button>
+<button ngClass="error" (click)="onClick(3)">Cancelar pago</button>
 
 <h5>Tipo JSON</h5>
 <!-- PIPE: Ejemplo de clase como JSON-->
@@ -98,6 +99,12 @@
   <p *ngSwitchCase="true">Ejemplo de ngSwitch</p>
   <p *ngSwitchCase="false">ngSwitch ejemplo</p>
 </div>
+
+<hr>
+<h2>two way binding</h2>
+<form #formDatos (ngSubmit)="guardarForm(formDatos)">
+  <input type="text" name="subtitulo" [ngModel]="subtitulo">
+</form>
 
 </main>
 <app-footer></app-footer>

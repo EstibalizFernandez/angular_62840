@@ -1,0 +1,55 @@
+<main class="container">
+  <h1>{{ titulo }}</h1>
+
+  <h2>hola</h2>
+  <!--Formulario-->
+  <h1>Reactive form</h1>
+  <form class="row g-3" #formContacto="ngForm" (ngSubmit)="onSubmit($event)">
+    <div class="input-group">
+      <span class="input-group-text">nombre</span>
+      <input
+        type="text"
+        [(ngModel)]="contactFormModel.nombre"
+        name="nombre"
+        required
+        #nombreControl="ngModel"
+      />
+    </div>
+    <div id="emailHelp" class="form-text">{{nombreControl.valid}}</div>
+
+    <div class="input-group">
+      <span class="input-group-text">email</span>
+      <input
+        name="email"
+        [(ngModel)]="contactFormModel.email"
+        #emailControl="ngModel"
+        type="text"
+        [ngClass]="{
+          'is-invalid': 'emailControlIsinvalid',
+          'is-valid': 'emailControlIsValid'
+        }"
+        class="form-control"
+        area-describedby="emailHelp"
+        required
+        pattern="^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$"
+
+      />
+    </div>
+    <div id="emailHelp" class="form-text">{{emailControl.valid}}</div>
+    <div class="input-group">
+      <span class="input-group-text">mensaje</span>
+      <textarea
+        name="mensaje"
+        class="form-control"
+        [(ngModel)]="contactFormModel.mensaje"
+        required
+        #mensajeControl="ngModel"
+      ></textarea>
+    </div>
+    <div id="emailHelp" class="form-text">{{mensajeControl.valid}}</div>
+    <button></button>
+  </form>
+
+  {{contactFormModel | json}}
+  <!--Formulario-->
+</main>

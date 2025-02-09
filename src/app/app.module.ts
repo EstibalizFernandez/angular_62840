@@ -5,20 +5,28 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './components/header/header.component';
 import { FooterComponent } from './components/footer/footer.component';
-import { HomeComponent } from '../pages/home/home.component';
+import { ReactiveFormsComponent } from '../pages/reactiveForms/reactiveForms.component';
 import { ResaltadoDirective } from './directives/resaltado.directive';
+import { FormsModule } from '@angular/forms';
+
+import {ReactiveFormsModule} from '@angular/forms';
+import { TemplateDrivenComponent } from '../pages/templateDriven/templateDriven.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     HeaderComponent,
     FooterComponent,
-    HomeComponent,
-    ResaltadoDirective
+    ReactiveFormsComponent,
+    ResaltadoDirective,
+    TemplateDrivenComponent,
+    
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    FormsModule,
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
